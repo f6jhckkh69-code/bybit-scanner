@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="app-version" content="4.2-20261125">
+<meta name="app-version" content="4.3-20261125">
 <meta name="theme-color" content="#0b1423">
 <meta name="description" content="바이비트 USDT 무기한 선물 1~3일 돌파·매집 후보 검색기. 거래량, 1h/4h/1D, RSI, ADX, OI 분석.">
-<title>바이비트 급등 후보 스캐너 4.2 · 전수 후보·직접 진단</title>
+<title>바이비트 급등 후보 스캐너 4.3 · 전수 후보·직접 진단</title>
 <style>
 :root{color-scheme:dark;--bg:#09111e;--pane:#142136;--pane2:#192940;--deep:#0b192b;--line:#304157;--text:#f0f5ff;--sub:#afc1dc;--blue:#54b5ff;--green:#5ed7ac;--red:#ff7e93;--gold:#ffcb79}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#102340,var(--bg) 390px);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:default}a{color:inherit}
@@ -33,7 +33,7 @@
 </style>
 </head>
 <body><main class="shell">
-<header><div class="eyebrow">BYBIT · MOBILE SCANNER · V4.2 · 배포확인 2026.11.25</div><h1>1~3일 급등 후보 스캐너 4.2</h1><p>암호화폐 USDT 무기한만 · 15분/1시간/4시간/일봉 · 급등률 강제 제외 없음 · 주식·ETF·외환·원자재·스테이블/금 연동 제외</p></header>
+<header><div class="eyebrow">BYBIT · MOBILE SCANNER · V4.3 · 배포확인 2026.11.25</div><h1>1~3일 급등 후보 스캐너 4.3</h1><p>암호화폐 USDT 무기한만 · 15분/1시간/4시간/일봉 · 급등률 강제 제외 없음 · 주식·ETF·외환·원자재·스테이블/금 연동 제외</p></header>
 <section class="panel">
  <div class="section-title">분석 방식 선택</div>
  <div class="modes">
@@ -55,17 +55,24 @@
 <section class="panel diag-panel" id="diagArea"><div class="section-title">지정 코인 진단 / 검색 경로</div><p id="diagStatus" class="diag-status" aria-live="polite">CYS를 직접 확인하려면 ‘코인 단독 진단’을 누르세요. 시장 스캔 시 지정 종목 경로도 이곳에 표시됩니다.</p><div id="diagResult"></div></section>
 <section class="panel" id="resultArea">
  <div class="results-header"><div><h2>후보 순위 <small style="font-size:11px;color:#a9c5dd;font-weight:500">(지정 종목은 맨 위)</small></h2><div class="subtext" id="lastUpdated">스캔 시작을 누르면 결과가 표시됩니다.</div></div><b class="blue" id="resultCount"></b></div>
- <div class="results-controls"><div class="field"><label for="typeFilter">상태 필터</label><select id="typeFilter"><option value="all">전체 보기</option><option value="early">선행 포착</option><option value="flow">초기 수급 관찰</option><option value="reversal">하락 후 반등</option><option value="confirmed">돌파 확인</option><option value="near">돌파 임박</option><option value="accum">축적·매집 관찰</option><option value="risk">추격 위험</option><option value="watch">그 외 관찰</option></select></div><div class="field"><label for="sortBy">정렬</label><select id="sortBy"><option value="priority">선행 신호 우선</option><option value="earlyScore">선행강도 높은 순</option><option value="score">조건 점수 높은 순</option><option value="reversalScore">추세 전환 강도순</option><option value="accumScore">매집 추정 강도순</option><option value="chaseScore">추격 위험 낮은 순</option><option value="distance">돌파가에 가까운 순</option><option value="volume">단기 거래량 증가 순</option><option value="vol15">15분봉 거래량 순</option><option value="oi">OI 증가 순</option></select></div></div>
- <div class="summarybar" id="summaryBar"></div>
+ <div class="results-controls"><div class="field"><label for="typeFilter">상태 필터</label><select id="typeFilter"><option value="all">전체 보기</option><option value="early">선행 포착</option><option value="flow">초기 수급 관찰</option><option value="reversal">하락 후 반등</option><option value="confirmed">돌파 확인</option><option value="near">돌파 임박</option><option value="approach">저항 접근 관찰</option><option value="strengthening">신규 강화 신호</option><option value="accum">축적·매집 관찰</option><option value="risk">추격 위험</option><option value="watch">그 외 관찰</option></select></div><div class="field"><label for="sortBy">정렬</label><select id="sortBy"><option value="priority">선행 신호 우선</option><option value="earlyScore">선행강도 높은 순</option><option value="acceleration">선행강도 상승 속도순</option><option value="score">조건 점수 높은 순</option><option value="reversalScore">추세 전환 강도순</option><option value="accumScore">매집 추정 강도순</option><option value="chaseScore">추격 위험 낮은 순</option><option value="distance">돌파가에 가까운 순</option><option value="volume">단기 거래량 증가 순</option><option value="vol15">15분봉 거래량 순</option><option value="oi">OI 증가 순</option></select></div></div>
+ <div class="notice" id="marketContext">BTC 시장 상태: 스캔 후 표시</div><div class="summarybar" id="summaryBar"></div>
  <div id="results" class="empty">4개 점수는 각각 0~100점이며 상승 확률이 아닌 기술적 조건 적합도입니다. 이미 급등한 종목에는 과열 경고를 표시합니다.</div>
 </section>
+<section class="panel" id="historyArea">
+ <div class="section-title">선행강도 기록 · 24/48/72시간 성과</div>
+ <p class="notice" id="historyStatus">기록 없음</p>
+ <div class="field"><label for="historySelect">검증할 스캔 기록 (위험 제외 선행 상위 20개, 최대 48회/14일)</label><select id="historySelect"></select></div>
+ <div class="actions"><button class="btn ghost" id="perfBtn" type="button" disabled>성과 조회</button><button class="btn ghost" id="historyCsv" type="button" disabled>기록 CSV</button><button class="btn ghost" id="perfCsv" type="button" disabled>성과 CSV</button></div>
+ <p class="notice">같은 브라우저에 완료 스캔 자동 저장. 선행 변화는 15분~6시간 간격만 비교. 성과는 스캔 완료 후 첫 15분 확정봉 종가 기준, 미래 봉은 대기 처리. 수수료·펀딩 미반영, 실제 체결 수익률 아님. 브라우저 데이터 삭제 시 기록 소실.</p><div id="perfResults"></div>
+</section>
 <section class="panel">
- <div class="section-title">4.2 신호 해석</div><p class="footer">선행강도와 기존 종합점수 중 하나만 기준을 통과해도 표시할 수 있습니다. 초기 수급은 돌파 미확정, 하락 후 반등은 추세 전환 미확정입니다. 추격 위험은 0~100점으로 높을수록 과열에 가깝습니다. 24h +10%, 45m +4%, 3h +9% 또는 추격 위험 55점 이상은 별도 위험 분류합니다. 거래대금 및 정밀 순위 탈락은 전체 검색 경로 CSV에서 확인합니다. 스테이블·금 연동 자산은 알려진 심볼 목록으로 제외하며 신규 자산은 누락될 수 있습니다.</p>
+ <div class="section-title">4.3 신호 해석</div><p class="footer">선행·종합·추세 전환·매집 중 하나만 기준을 통과해도 표시됩니다. 거래대금 확인 없는 저항 접근은 돌파 임박과 구분합니다. 선행 변화는 동일 모드, 다른 확정봉, OI 확인 상태가 같은 직전 기록과 비교합니다. 초기 수급은 돌파 미확정, 하락 후 반등은 추세 전환 미확정입니다. 추격 위험은 0~100점으로 높을수록 과열에 가깝습니다. 24h +10%, 45m +4%, 3h +9% 또는 추격 위험 55점 이상은 별도 위험 분류합니다. 거래대금 및 정밀 순위 탈락은 전체 검색 경로 CSV에서 확인합니다. 스테이블·금 연동 자산은 알려진 심볼 목록으로 제외하며 신규 자산은 누락될 수 있습니다.</p>
  <p class="footer"><b>선행 포착</b>: 15분봉 거래대금이 평소보다 늘고 단기 추세가 개선된 경우입니다. 돌파·상승을 보장하지 않으며 거짓 신호가 많을 수 있습니다. <b>돌파 확인</b>: 1시간 확정봉 2개가 저항 참고가를 넘은 경우입니다. <b>매집 관찰</b>: 최근 7일 거래량이 증가했지만 가격 변화가 제한된 상태입니다.</p>
  <p class="footer"><b>과열 위험</b>: 24시간·3일 상승폭, RSI, 4시간봉 EMA와의 거리, 과도한 펀딩 등을 평가합니다. <b>OI</b>: 미결제약정 변화로, 증가했다고 매수 우위라는 증거가 되지는 않습니다. 지표는 확정봉 기준이고 상단 실시간 현재가는 시점이 다를 수 있습니다. 15분봉 거래량은 시간대별 계절성을 완전히 보정하지 않습니다.</p>
  <p class="footer">돌파 모드는 선택된 모든 종목의 15m 확정봉을 먼저 검사하고, 정밀 분석은 최대 120개 및 지정 코인에 한정합니다. 매집 모드는 일봉부터 검사합니다. 거래대금 지속성은 최근 3봉 중 직전 32봉 중앙값의 1.25배 이상인 봉 수입니다. 양봉 거래대금 비중은 실제 매수 체결 비중이 아닙니다. OI 누락 시 선행강도 최대 86점입니다. 전체 검사는 모바일에서 오래 걸리거나 API 제한에 걸릴 수 있습니다. 신호가 없는 종목도 지정 코인은 단독 진단으로 확인할 수 있습니다.</p>
  <p class="footer">Bybit 공개 REST API를 직접 호출합니다. 지역/IP 접근 제한, API 요청 제한, CORS 정책에 따라 실패할 수 있습니다. 예측·수익을 보장하지 않으며 고레버리지 선물은 큰 손실 위험이 있습니다. 점수 체계는 경험적 규칙으로 백테스트된 확률 모델이 아닙니다.</p>
-</section><div class="foot">BYBIT SCANNER 4.2 · BUILD 2026.11.25 · EARLY WATCH · FOCUS DIAGNOSIS · NO ORDERS</div>
+</section><div class="foot">BYBIT SCANNER 4.3 · BUILD 2026.11.25 · EARLY WATCH · FOCUS DIAGNOSIS · NO ORDERS</div>
 </main>
 <script>
 'use strict';
@@ -270,8 +277,9 @@ function extraAxes(r){
  const reversalScore=clamp(rev-chase.score*.25,0,100),accumScore=clamp(acc-chase.score*.45,0,100);
  return {reversalScore,accumScore,chaseScore:chase.score,revParts,accParts,chaseParts:chase.parts};
 }
-function classify42(r){
- const axes=extraAxes(r);const x={...r,...axes};
+function classify43(r){return classifySignal43({...r,...extraAxes(r)});}
+function classifySignal43(r){
+ const x={...r};
  // Strong signals stay visible independently of the old category or composite score.
  const overheated=x.chaseScore>=55||x.pct24h>=10||x.change45>=4||x.change3h>=9;
  const falling=x.pct24h<=-5||(x.trend4h===false&&x.rsi4h<45&&x.rsi1h<42);
@@ -279,20 +287,22 @@ function classify42(r){
  if(overheated){x.category='risk';x.signal='추격 위험';}
  else if(bounce){x.category='reversal';x.signal='하락 후 반등 · 추세 미확정';}
  else if(x.category==='confirmed'){}
+ else if(x.category==='near'&&!hasBreakoutFlow(x)){x.category='approach';x.signal='저항 접근 관찰 · 수급 미확인';}
  else if(x.category==='early'&&!falling){}
  else if(x.earlyScore>=65){x.category='flow';x.signal=falling?'초기 수급 · 하방 주의':x.persistence<2?'초기 수급 · 단발성 주의':'초기 수급 관찰';}
  else if(x.accumScore>=65&&x.category!=='near'){x.category='accum';x.signal='매집 추정 관찰';}
  else if(x.category==='risk'){x.category='watch';x.signal='위험 경고 · 관찰';}
  return x;
 }
-function analyze42(r,mode){return classify42(mode==='breakout'?rankBreak(r):rankAccum(r));}
+function hasBreakoutFlow(r){return r.vol15mRatio3>=1.25&&r.persistence>=2&&r.upShare>=.50&&r.rsi15m>=48&&r.rsi15m<=74&&(r.trend15m||r.momentum15)&&r.change45>0&&(r.oi3pct==null||r.oi3pct>=-3);}
+function analyze43(r,mode){return classify43(mode==='breakout'?rankBreak(r):rankAccum(r));}
 function passesProfile(r,profile,mode){
  const scoreNeed={relaxed:25,balanced:40,strict:60}[profile];
  const earlyNeed={relaxed:45,balanced:50,strict:70}[profile];
  const axisNeed={relaxed:50,balanced:65,strict:75}[profile];
- return r.earlyScore>=earlyNeed||r.score>=scoreNeed||r.reversalScore>=axisNeed||(mode==='accum'&&r.accumScore>=axisNeed)||r.category==='risk'&&r.earlyScore>=65;
+ return r.earlyScore>=earlyNeed||r.score>=scoreNeed||r.reversalScore>=axisNeed||r.accumScore>=axisNeed||r.category==='risk'&&r.earlyScore>=65;
 }
-function axisHTML(r){return `<div class="axes">${[['선행강도',r.earlyScore],['추세 전환',r.reversalScore],['매집 추정',r.accumScore],['추격 위험',r.chaseScore]].map(([n,v],i)=>`<div class="axis"><span>${n}</span><b class="${i===3&&v>=55?'red':i!==3&&v>=65?'green':''}">${v.toFixed(1)}</b><div class="axis-track"><i style="width:${v}%;background:${i===3?'#e59d6d':'#5ed7ac'}"></i></div></div>`).join('')}</div>`}
+function axisHTML(r){return `<div class="axes">${[['선행강도',r.earlyScore],['추세 전환',r.reversalScore],['매집 추정',r.accumScore],['추격 위험',r.chaseScore]].map(([n,v],i)=>`<div class="axis"><span>${n}</span><b class="${i===3&&v>=55?'red':i!==3&&v>=65?'green':''}">${v.toFixed(1)}</b><div class="axis-track"><i style="width:${v}%;background:${i===3?'#e59d6d':'#5ed7ac'}"></i></div></div>`).join('')}</div>`+signalChangeHTML(r)}
 function markPriceColor(x){return x==null?'muted':x>=0?'green':'red'}
 function chartSVG(b,res,sup){if(!b||b.length<2)return '<div class="empty">차트 데이터가 없습니다.</div>';const data=b.slice(-64),values=data.map(x=>x.c),top=Math.max(...values,res||-Infinity,sup||-Infinity),bottom=Math.min(...values,res||Infinity,sup||Infinity),gap=(top-bottom)||Math.abs(top)*.01||1,hi=top+gap*.13,lo=bottom-gap*.13,w=640,h=145,m=8;const X=i=>m+i*(w-2*m)/(data.length-1),Y=v=>m+(hi-v)/(hi-lo)*(h-2*m);const points=data.map((x,i)=>X(i).toFixed(1)+','+Y(x.c).toFixed(1)).join(' ');const line=(v,color)=>v>0&&v>=lo&&v<=hi?`<line x1="0" x2="${w}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${color}" stroke-width="1.5" stroke-dasharray="7 6" opacity=".7"/>`:'';return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="확정봉 종가 흐름, 주황색은 저항선, 초록색은 지지선"><path d="M0 ${h/2}H${w}" stroke="#2b405b" stroke-dasharray="3 7"/>${line(res,'#efbe71')}${line(sup,'#51cda8')}<polyline points="${points}" fill="none" stroke="#60c1ff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`}
 function metric(k,v){return `<div class="metric"><span>${k}</span><b>${v}</b></div>`}
@@ -304,12 +314,13 @@ function detailHTML(r){const a=r.adx4h,tfCells=[['1시간',r.trend1h,r.rsi1h],['
  return `<div class="tf-tabs"><button class="active" data-tf="15" type="button">15분봉</button><button data-tf="60" type="button">1시간봉</button><button data-tf="240" type="button">4시간봉</button><button data-tf="D" type="button">일봉</button></div><div class="chart-area">${chartSVG(r.bars15m,r.localTrigger,null)}</div><p class="smallnote">파란선: 확정봉 종가 · 주황선: 참고 저항 · 초록선: 참고 지지. 상단에 표시된 현재가는 스캔 시작 시점의 시세일 수 있습니다.</p>${axisHTML(r)}<div class="tf-grid">${tfCells}</div><div class="grid-metrics">${fields}</div><div class="details-title">점수 구성</div><div class="chips">${flags}</div><div class="details-title">선행강도 구성 (최대 100점)</div><div class="chips">${r.earlyParts.map(x=>`<span class="flag">${safe(x)}</span>`).join('')}${r.earlyPenalty?`<span class="flag bad">선행 감점 -${r.earlyPenalty.toFixed(1)}</span>`:''}${r.oi3pct==null?'<span class="flag">OI 미확인 · 최대 86점</span>':''}</div><div class="details-title">추세 전환 / 매집 / 추격 점수 구성</div><div class="chips">${[...r.revParts.map(x=>'전환: '+x),...r.accParts.map(x=>'매집: '+x),...r.chaseParts.map(x=>'추격: '+x)].map(x=>`<span class="flag">${safe(x)}</span>`).join('')}</div><p class="smallnote">전환·매집 점수에는 각각 추격 위험도의 25%·45%를 감점합니다. 매집은 체결 주체를 확인하지 못하는 추정치입니다.</p><div class="details-title">위험 경고</div><div class="chips">${riskFlags}</div>${fibHtml}<p class="smallnote">‘선행 포착’은 <b>15분 확정봉 1~3개</b> 중심의 초기 신호이며 예측·돌파 확정이 아닙니다. ‘돌파 확인’은 <b>1시간봉 종가 2개</b>의 공통 참고가 돌파를 의미합니다. 확정 신호와 예측은 다르며 추세 지속을 보장하지 않습니다. OI 증감으로 매수·매도 주체를 구별할 수 없습니다.</p><div class="links"><a class="outlink" href="${tv}" target="_blank" rel="noopener noreferrer">트레이딩뷰</a><a class="outlink" href="${bb}" target="_blank" rel="noopener noreferrer">바이비트 차트</a></div>`
 }
 function resultTypeClass(r){return r.category==='confirmed'?'hot':['early','near','flow','reversal'].includes(r.category)?'warm':r.category==='risk'?'risky':''}
-function activeFilters(r){const type=$('typeFilter').value;return (type==='all'||r.category===type)&&(r.symbol===state.focus||passesProfile(r,$('profile').value,state.mode))}
+function activeFilters(r){const type=$('typeFilter').value;return (type==='all'||r.category===type||type==='strengthening'&&r.newStrength)&&(r.symbol===state.focus||passesProfile(r,$('profile').value,state.mode))}
 function sorted(rows){
  const by=$('sortBy').value;
- const weight={early:6,flow:6,reversal:4,near:5,accum:3,confirmed:2,watch:1,risk:0};
+ const weight={early:6,flow:6,reversal:4,near:5,accum:3,confirmed:2,approach:1,watch:1,risk:0};
  return rows.slice().sort((a,b)=>{
-  if(by==='priority'){const rank=x=>x.category==='risk'?0:state.mode==='accum'?x.accumScore*.8+x.earlyScore*.2:x.earlyScore;return (rank(b)-rank(a))||(weight[b.category]-weight[a.category])||(b.score-a.score);}
+  if(by==='priority'){const rank=x=>x.category==='risk'?0:state.mode==='accum'?x.accumScore*.8+x.earlyScore*.2:x.earlyScore+Math.min(12,Math.max(0,x.earlyDelta??0)*.4);return (rank(b)-rank(a))||(weight[b.category]-weight[a.category])||(b.score-a.score);}
+  if(by==='acceleration')return Number(b.category!=='risk')-Number(a.category!=='risk')||(b.earlySpeed??-Infinity)-(a.earlySpeed??-Infinity)||b.earlyScore-a.earlyScore;
   if(by==='reversalScore'||by==='accumScore')return b[by]-a[by];
   if(by==='chaseScore')return a.chaseScore-b.chaseScore;
   if(by==='earlyScore')return b.earlyScore-a.earlyScore||b.score-a.score;
@@ -320,10 +331,15 @@ function sorted(rows){
   return b.score-a.score;
  })
 }
-function render(){let rows=sorted(state.results.filter(activeFilters));const focusRow=rows.find(r=>r.symbol===state.focus);if(focusRow)rows=[focusRow,...rows.filter(r=>r!==focusRow)];const limit=num($('topCount').value,35),slice=rows.slice(0,limit);$('resultCount').textContent=rows.length+'개';$('lastUpdated').textContent=state.lastTime?closedAt(state.lastTime)+' 기준 · '+state.analyzed+'개 정밀 분석'+(state.provisional?' · OI 확인 전 임시 신호':''):'스캔 전';const count={early:0,flow:0,reversal:0,confirmed:0,near:0,accum:0,risk:0,watch:0};state.results.forEach(r=>count[r.category]++);$('summaryBar').innerHTML=Object.entries({early:'선행 포착',flow:'초기 수급',reversal:'하락 후 반등',near:'임박',confirmed:'돌파 확인',accum:'축적',risk:'추격 위험'}).map(([k,v])=>`<span class="stat-chip">${v} <b>${count[k]}</b></span>`).join('');if(!slice.length){$('results').innerHTML=`<div class="empty">현재 조건에 맞는 후보가 없습니다. 위의 <b>검색 강도</b>를 ‘완화’로 바꾸거나 상태 필터를 ‘전체 보기’로 변경해 보세요.<br>※ 실제 검색 결과를 임의로 만들어 표시하지 않습니다.</div>`;return}
+function render(){let rows=sorted(state.results.filter(activeFilters));const focusRow=rows.find(r=>r.symbol===state.focus);if(focusRow)rows=[focusRow,...rows.filter(r=>r!==focusRow)];const limit=num($('topCount').value,35),slice=rows.slice(0,limit);$('resultCount').textContent=rows.length+'개';$('lastUpdated').textContent=state.lastTime?closedAt(state.lastTime)+' 기준 · '+state.analyzed+'개 정밀 분석'+(state.provisional?' · OI 확인 전 임시 신호':''):'스캔 전';const count={early:0,flow:0,reversal:0,confirmed:0,near:0,approach:0,accum:0,risk:0,watch:0};state.results.forEach(r=>count[r.category]++);$('summaryBar').innerHTML=`<span class="stat-chip">신규 강화 <b>${state.results.filter(r=>r.newStrength).length}</b></span>`+Object.entries({early:'선행 포착',flow:'초기 수급',reversal:'하락 후 반등',near:'임박',approach:'저항 접근',confirmed:'돌파 확인',accum:'축적',risk:'추격 위험'}).map(([k,v])=>`<span class="stat-chip">${v} <b>${count[k]}</b></span>`).join('');if(!slice.length){$('results').innerHTML=`<div class="empty">현재 조건에 맞는 후보가 없습니다. 위의 <b>검색 강도</b>를 ‘완화’로 바꾸거나 상태 필터를 ‘전체 보기’로 변경해 보세요.<br>※ 실제 검색 결과를 임의로 만들어 표시하지 않습니다.</div>`;return}
  $('results').innerHTML=slice.map((r,i)=>{const cls=resultTypeClass(r);const badge=cls==='hot'?'hot':cls==='risky'?'risky':cls==='warm'?'warm':'';return `<article class="result ${cls}"><button type="button" class="open-result" data-symbol="${safe(r.symbol)}" aria-expanded="false"><div class="topline"><div><span class="rank">#${i+1}</span> <span class="pair">${safe(r.symbol)}</span>${r.symbol===state.focus?' <span class="flag good">직접 추적</span>':''}</div><div class="score">${(state.mode==='accum'?r.accumScore:r.earlyScore).toFixed(1)}<small> / 100</small><small style="display:block;text-align:right">${state.mode==='accum'?'매집 추정':'선행강도'}</small></div></div><div class="meta"><span class="signal ${badge}">${safe(r.signal)}</span> &nbsp; ${price(r.priceLive)} USDT</div><div class="kpis"><div class="kpi"><span>15분봉 3개 거래량</span><strong>${mult(r.vol15mRatio3)}</strong></div><div class="kpi"><span>24시간 등락</span><strong class="${markPriceColor(r.pct24h)}">${pct(r.pct24h)}</strong></div><div class="kpi"><span>OI 최근 3h</span><strong class="${markPriceColor(r.oi3pct)}">${pct(r.oi3pct)}</strong></div></div>${axisHTML(r)}<div class="quick">종합 ${r.score.toFixed(1)} · 단기 저항 ${pct(r.localDist)} · 지속 ${r.persistence}/3봉 · 선행 강도 ${r.earlyScore.toFixed(0)}/100 · 15m/1h/4h/일봉 차트 ▾</div></button><div class="detail" id="detail-${r.symbol}">${detailHTML(r)}</div></article>`}).join('');
  $('results').querySelectorAll('button[data-symbol]').forEach(button=>button.addEventListener('click',()=>{const d=$('detail-'+button.dataset.symbol);const show=d.classList.toggle('open');button.setAttribute('aria-expanded',String(show))}));
  $('results').querySelectorAll('.tf-tabs button').forEach(button=>button.addEventListener('click',()=>{const panel=button.closest('.detail'),r=state.results.find(x=>x.symbol===panel.id.slice(7));if(!r)return;panel.querySelectorAll('.tf-tabs button').forEach(b=>b.classList.toggle('active',b===button));const tf=button.dataset.tf;panel.querySelector('.chart-area').innerHTML=chartSVG(tf==='D'?r.barsD:tf==='15'?r.bars15m:tf==='60'?r.bars1h:r.bars4h,tf==='D'?null:tf==='15'?r.localTrigger:tf==='60'?r.res1h:r.res4h,tf==='240'?r.support:null)}));
+}
+function alternateRank(r,mode){
+ if(mode!=='breakout')return clamp((r.vol7ratio-1)*15,0,25)+clamp((30-r.range14pct),0,25)+(r.trendDaily?10:0);
+ const prev=quarterHour(r.bars15m.slice(0,-3));const speed=prev?firstRank(r)-firstRank({...r,...prev}):0;
+ return clamp(speed,0,30)+clamp((r.vol15mRatio3-.7)*10,0,18)+r.persistence*4+clamp((4-Math.abs(r.change3h))*3,0,12)+clamp((r.upShare-.4)*20,0,10)-shortRisk(r).penalty;
 }
 function pickCandidates(t,eligible,turnover,max,focus=''){
  // Do not exclude a market purely because it has already moved +/-16% in 24h.
@@ -391,10 +407,10 @@ async function diagnose(){
   if(gaps.length)throw new Error('상장 직후이거나 데이터가 부족해 통합 점수 계산 불가: '+gaps.join(' / ')+'. 데이터가 부족한 종목은 강제 점수를 생성하지 않습니다.');
   status('단독 종목 진단',.80,'OI 정보 요청 중 (실패해도 가격/거래량 분석 유지)');
   let oi={oi3pct:null,oi24pct:null};try{oi=await openInterest(symbol)}catch(e){focusNote('OI 조회 실패: '+e.message+' (OI 제외하고 분석)')}
-  const r=analyze42({...a,...h,...d,...q,...oi},state.mode);
+  const r=attachChange(analyze43({...a,...h,...d,...q,...oi},state.mode),state.mode);
   focusNote('정밀 분석 완료 — '+r.score.toFixed(0)+'/100점 / 분류: '+r.signal);
   focusNote(r.score<({relaxed:25,balanced:40,strict:60}[$('profile').value])?'일반 점수 필터 아래지만 직접 진단은 표시합니다.':'일반 종합점수 기준 통과');
-  focusNote('4.2 표시 기준: '+(passesProfile(r,$('profile').value,state.mode)?'통과':'미달 (직접 진단 예외)'));
+  focusNote('4.3 표시 기준: '+(passesProfile(r,$('profile').value,state.mode)?'통과':'미달 (직접 진단 예외)'));
   if(r.category==='risk')focusNote('현재 상승 신호 대신 추격 위험으로 분류. 이것은 상승 가능성을 뜻하지 않습니다.');
   $('diagResult').innerHTML=`<div class="diag-score"><span><b>${safe(symbol)}</b> · ${safe(r.signal)}</span><span>조건 점수 <b>${r.score.toFixed(0)}/100</b></span><span>선행강도 <b>${r.earlyScore.toFixed(0)}/100</b></span><span>24h <b>${pct(change)}</b></span><span>15m 거래량 <b>${mult(r.vol15mRatio3)}</b></span><span>OI 3h <b>${pct(r.oi3pct)}</b></span></div><details class="diag-details"><summary>15분 / 1시간 / 4시간 / 일봉 · 지표와 차트 보기</summary><div class="detail">${detailHTML(r)}</div></details>`;
   const tabRoot=$('diagResult');
@@ -409,12 +425,13 @@ async function diagnose(){
 }
 
 function auditSet(symbol,stage,detail=''){const a=state.audit.get(symbol)||{symbol};state.audit.set(symbol,{...a,stage,detail});}
-async function scan(){if(state.running)return;state.running=true;state.cancel=false;state.results=[];state.errors=[];state.audit=new Map();state.started=Date.now();$('auditBtn').disabled=true;state.lastTime=null;state.excluded=0;state.provisional=false;state.focus=normalizeSymbol($('focusSymbol').value);state.focusNotes=[];state.eligibleCount=0;state.liquidCount=0;state.firstCount=0;$('diagResult').innerHTML='';if(state.focus)focusNote('시장 스캔 시작 — 우선 분석 종목으로 지정됨');else $('diagStatus').textContent='직접 추적 종목을 입력하지 않았습니다. 나중에 코인 단독 진단을 사용할 수 있습니다.';$('scanBtn').disabled=true;$('csvBtn').disabled=true;$('cancelBtn').classList.remove('hidden');$('summaryBar').innerHTML='';$('results').innerHTML='<div class="empty">15분 확정봉·1시간 가속·OI 변화로 초기 움직임을 분석 중입니다.</div>';
+async function scan(){if(state.running)return;state.running=true;state.cancel=false;state.results=[];state.errors=[];state.audit=new Map();state.started=Date.now();$('marketContext').textContent='BTC 시장 상태: 조회 중';state.btcContext=null;$('auditBtn').disabled=true;state.lastTime=null;state.excluded=0;state.provisional=false;state.focus=normalizeSymbol($('focusSymbol').value);state.focusNotes=[];state.eligibleCount=0;state.liquidCount=0;state.firstCount=0;$('diagResult').innerHTML='';if(state.focus)focusNote('시장 스캔 시작 — 우선 분석 종목으로 지정됨');else $('diagStatus').textContent='직접 추적 종목을 입력하지 않았습니다. 나중에 코인 단독 진단을 사용할 수 있습니다.';$('scanBtn').disabled=true;$('csvBtn').disabled=true;$('cancelBtn').classList.remove('hidden');$('summaryBar').innerHTML='';$('results').innerHTML='<div class="empty">15분 확정봉·1시간 가속·OI 변화로 초기 움직임을 분석 중입니다.</div>';
  const mode=state.mode,max=$('maxSymbols').value,turnover=num($('minTurnover').value,500000);
  try{
   status('상장 종목과 시세 조회',.02,'바이비트 공개 API 연결 중');
   const [ticker,eligible]=await Promise.all([request('/v5/market/tickers',{category:'linear'}),eligibleSymbols()]);
   const list=pickCandidates(ticker,eligible,turnover,max,state.focus);
+  state.btcContext=await btcMarket(ticker);showMarket();
   if(state.focus){const watch=(ticker.list||[]).find(x=>x.symbol===state.focus);
    if(!eligible.has(state.focus))focusNote('계약 필터 탈락: 바이비트 거래 중인 암호화폐 USDT 무기한이 아님. 단독 진단으로 확인 가능');
    else if(!watch)focusNote('시세 데이터 누락: 상장 정보는 있지만 ticker가 없음');
@@ -428,12 +445,14 @@ async function scan(){if(state.running)return;state.running=true;state.cancel=fa
   if(!bases.length)throw new Error('1차 데이터를 받지 못했습니다. '+(state.errors[0]||''));
   const picks=mode==='breakout'?bases.slice().sort((a,b)=>firstRank(b)-firstRank(a)):bases.slice().sort((a,b)=>{const v=x=>clamp((x.vol7ratio-1)*15,0,25)+clamp((21-x.range14pct)*1.5,0,25)+(x.trendDaily?10:0);return v(b)-v(a)});
   const deepLimit=Math.min(max==='all'?120:num(max,220)>=350?94:num(max,220)>=220?72:Math.max(42,Math.round(num(max,220)*.40)),bases.length);
-  const finalists=picks.slice(0,Math.min(Math.ceil(deepLimit*.65),picks.length)),picked=new Set(finalists.map(x=>x.symbol));
+  const finalists=picks.slice(0,Math.min(Math.ceil(deepLimit*.50),picks.length)),picked=new Set(finalists.map(x=>x.symbol));
   const earlyPool=bases.slice().sort((a,b)=>{const v=x=>mode==='breakout'
     ?clamp((x.vol15mRatio3-1)*12,0,24)+x.persistence*5+(x.momentum15?12:0)+(x.localDist>=0&&x.localDist<=4?10:0)+(x.pct24h>=-3&&x.pct24h<=5?10:0)-shortRisk(x).penalty
     :clamp(((x.vol7ratio??0)-1)*16,0,28)+clamp((24-(x.range14pct??30))*1.1,0,19)+((x.net7pct>=-4&&x.net7pct<=10)?7:0);
    return v(b)-v(a)});
-  for(const x of earlyPool){if(finalists.length>=deepLimit)break;if(!picked.has(x.symbol)){finalists.push(x);picked.add(x.symbol)}}
+  for(const x of earlyPool){if(finalists.length>=Math.ceil(deepLimit*.75))break;if(!picked.has(x.symbol)){finalists.push(x);picked.add(x.symbol)}}
+  const altPool=bases.slice().sort((a,b)=>alternateRank(b,mode)-alternateRank(a,mode));
+  for(const x of altPool){if(finalists.length>=deepLimit)break;if(!picked.has(x.symbol)){finalists.push(x);picked.add(x.symbol)}}
   const direct=bases.find(x=>x.symbol===state.focus);
   if(direct&&!picked.has(direct.symbol)){finalists.push(direct);picked.add(direct.symbol)}
   if(state.focus&&direct)focusNote('정밀 15m/1h/4h/일봉 분석에 '+(finalists.some(x=>x.symbol===state.focus)?'포함':'미포함'));
@@ -448,18 +467,53 @@ async function scan(){if(state.running)return;state.running=true;state.cancel=fa
   for(const x of finalists)auditSet(x.symbol,'정밀 데이터 부족 또는 API 실패',state.errors.find(e=>e.startsWith(x.symbol+':'))||'');
   for(const x of deeper)auditSet(x.symbol,'정밀 완료 · OI 확인 대기');
   if(!deeper.length)throw new Error('정밀 분석 데이터가 없습니다. '+(state.errors[0]||''));
-  state.provisional=true;state.results=deeper.map(x=>analyze42({...x,oi24pct:null,oi3pct:null},mode));state.analyzed=deeper.length;state.lastTime=Date.now();render();
+  state.provisional=true;state.results=deeper.map(x=>analyze43({...x,oi24pct:null,oi3pct:null},mode));state.analyzed=deeper.length;state.lastTime=Date.now();render();
   const ready=await pool(deeper,2,async x=>{let oi={oi24pct:null,oi3pct:null};try{oi=await openInterest(x.symbol)}catch(e){state.errors.push(x.symbol+' OI: '+e.message)}return {...x,...oi}},(done,total)=>status('3차 미결제약정 확인',.84+.15*done/total,done+'/'+total+' 종목 OI 확인 · 오류 '+state.errors.length+'건'));
-  if(state.cancel)throw new Error('사용자 중단');state.results=ready.map(x=>analyze42(x,mode)).sort((a,b)=>b.score-a.score);if(state.focus){const fr=state.results.find(x=>x.symbol===state.focus);if(fr)focusNote('결과 표시 · '+fr.score.toFixed(0)+'/100점, '+fr.signal+' (일반 점수 컷 예외)');}state.provisional=false;state.analyzed=state.results.length;state.lastTime=Date.now();for(const x of state.results)auditSet(x.symbol,'정밀 완료',x.signal+(x.oi3pct==null?' · OI 누락':''));$('csvBtn').disabled=!state.results.length;status('스캔 완료',1,`시세 대상 ${state.eligibleCount}개 중 거래대금 통과 ${state.liquidCount}개 · 1차 ${state.firstCount}개 · 정밀 ${state.results.length}개 · 비암호화폐 등 ${state.excluded}개 제외 · API 오류 ${state.errors.length}건`);render();$('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
+  if(state.cancel)throw new Error('사용자 중단');state.results=ready.map(x=>attachChange(analyze43(x,mode),mode)).sort((a,b)=>b.score-a.score);if(state.focus){const fr=state.results.find(x=>x.symbol===state.focus);if(fr)focusNote('결과 표시 · '+fr.score.toFixed(0)+'/100점, '+fr.signal+' (일반 점수 컷 예외)');}state.provisional=false;state.analyzed=state.results.length;state.lastTime=Date.now();saveSnapshot();for(const x of state.results)auditSet(x.symbol,'정밀 완료',x.signal+(x.oi3pct==null?' · OI 누락':''));$('csvBtn').disabled=!state.results.length;status('스캔 완료',1,`시세 대상 ${state.eligibleCount}개 중 거래대금 통과 ${state.liquidCount}개 · 1차 ${state.firstCount}개 · 정밀 ${state.results.length}개 · 비암호화폐 등 ${state.excluded}개 제외 · API 오류 ${state.errors.length}건`);render();$('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
  }catch(e){status(state.cancel?'스캔 중단':'스캔 오류',0,String(e.message||e)+(state.errors.length?'\n첫 세부 오류: '+state.errors[0]:''))}
  finally{$('auditBtn').disabled=!state.audit.size;state.running=false;$('scanBtn').disabled=false;$('cancelBtn').classList.add('hidden');state.aborters.clear()}
 }
-function exportCSV(){if(!state.results.length)return;const cols=[['종목','symbol'],['점수(확률아님)','score'],['분류','signal'],['현재가','priceLive'],['24h변동(%)','pct24h'],['3d변동(%)','change3d'],['4h거래량배수','vol24ratio'],['15m최근3봉거래량배수','vol15mRatio3'],['15m최근봉거래량배수','vol15mRatio1'],['15mRSI','rsi15m'],['최근2h거래량배수','vol2ratio'],['OI3h(%)','oi3pct'],['선행강도(확률아님)','earlyScore'],['선행 감점','earlyPenalty'],['추세 전환 강도','reversalScore'],['매집 추정 강도','accumScore'],['추격 위험도','chaseScore'],['분류코드','category'],['15m종료 UTC(ms)','closeTime15m'],['1h종료 UTC(ms)','closeTime1h'],['4h종료 UTC(ms)','barTime4h'],['스캔시작 UTC(ms)','scanStarted'],['스캔완료 UTC(ms)','scanFinished'],['24h거래대금 USDT','turnover24h'],['45m 변동(%)','change45'],['검색강도(내보내기 시점)','profileUsed'],['표시 점수 기준','profilePass'],['단기 저항가','localTrigger'],['단기 저항거리(%)','localDist'],['거래대금 지속(3봉중)','persistence'],['양봉 거래대금 비중(0~1)','upShare'],['3h 변동(%)','change3h'],['1h기준6h거래량배수','vol6ratio'],['7d거래대금배수','vol7ratio'],['OI24h(%)','oi24pct'],['4hRSI','rsi4h'],['1hRSI','rsi1h'],['일봉RSI','rsiDaily'],['4hADX','adx4h'],['돌파참고가','trigger'],['저항선거리(%)','distTrigger'],['지지선','support'],['위험감점','penalty'],['펀딩(%)','funding']];const rows=[cols.map(x=>x[0]),...state.results.map(x=>cols.map(c=>c[1]==='adx4h'?x.adx4h?.adx??'':c[1]==='scanStarted'?state.started:c[1]==='scanFinished'?state.lastTime:c[1]==='profileUsed'?$('profile').value:c[1]==='profilePass'?(passesProfile(x,$('profile').value,state.mode)?'통과':'미달'):x[c[1]]??''))];const data='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const blob=new Blob([data],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='bybit_scanner_v42_'+state.mode+'_'+kstStamp()+'.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+function exportCSV(){if(!state.results.length)return;const cols=[['종목','symbol'],['점수(확률아님)','score'],['분류','signal'],['현재가','priceLive'],['24h변동(%)','pct24h'],['3d변동(%)','change3d'],['4h거래량배수','vol24ratio'],['15m최근3봉거래량배수','vol15mRatio3'],['15m최근봉거래량배수','vol15mRatio1'],['15mRSI','rsi15m'],['최근2h거래량배수','vol2ratio'],['OI3h(%)','oi3pct'],['선행강도(확률아님)','earlyScore'],['선행 감점','earlyPenalty'],['선행 변화(점)','earlyDelta'],['선행 변화(점/시간)','earlySpeed'],['비교 간격(시간)','compareHours'],['비교 이전 선행 점수','previousEarly'],['신규 강화','newStrength'],['BTC 시장 상태','btcLabel'],['추세 전환 강도','reversalScore'],['매집 추정 강도','accumScore'],['추격 위험도','chaseScore'],['분류코드','category'],['15m종료 UTC(ms)','closeTime15m'],['1h종료 UTC(ms)','closeTime1h'],['4h종료 UTC(ms)','barTime4h'],['스캔시작 UTC(ms)','scanStarted'],['스캔완료 UTC(ms)','scanFinished'],['24h거래대금 USDT','turnover24h'],['45m 변동(%)','change45'],['검색강도(내보내기 시점)','profileUsed'],['표시 점수 기준','profilePass'],['단기 저항가','localTrigger'],['단기 저항거리(%)','localDist'],['거래대금 지속(3봉중)','persistence'],['양봉 거래대금 비중(0~1)','upShare'],['3h 변동(%)','change3h'],['1h기준6h거래량배수','vol6ratio'],['7d거래대금배수','vol7ratio'],['OI24h(%)','oi24pct'],['4hRSI','rsi4h'],['1hRSI','rsi1h'],['일봉RSI','rsiDaily'],['4hADX','adx4h'],['돌파참고가','trigger'],['저항선거리(%)','distTrigger'],['지지선','support'],['위험감점','penalty'],['펀딩(%)','funding']];const rows=[cols.map(x=>x[0]),...state.results.map(x=>cols.map(c=>c[1]==='adx4h'?x.adx4h?.adx??'':c[1]==='scanStarted'?state.started:c[1]==='scanFinished'?state.lastTime:c[1]==='profileUsed'?$('profile').value:c[1]==='btcLabel'?(state.btcContext?.label??'미확인'):c[1]==='profilePass'?(passesProfile(x,$('profile').value,state.mode)?'통과':'미달'):x[c[1]]??''))];const data='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const blob=new Blob([data],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='bybit_scanner_v43_'+state.mode+'_'+kstStamp()+'.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
 function kstStamp(){return new Date(Date.now()+9*3600000).toISOString().slice(0,19).replace('T','_').replaceAll(':','-')+'_KST'}
-function exportAudit(){const rows=[['종목','24h 거래대금','24h 등락(%)','검색 결과','세부 이유','스캔 시작 UTC(ms)'],...[...state.audit.values()].map(a=>[a.symbol,a.turnover??'',a.pct24h??'',a.stage,a.detail??'',state.started??''])];const data='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([data],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='bybit_scanner_v42_audit_'+kstStamp()+'.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
-function restore(){try{const v=JSON.parse(localStorage.getItem('bybit-screener-v42')||localStorage.getItem('bybit-screener-v41')||localStorage.getItem('bybit-screener-v4')||localStorage.getItem('bybit-screener-v3')||localStorage.getItem('bybit-screener-v2')||'{}');for(const id of ['profile','maxSymbols','minTurnover','topCount']){if(v[id]!=null&&[...$(id).options].some(o=>o.value===v[id]))$(id).value=v[id]}if(typeof v.focusSymbol==='string')$('focusSymbol').value=v.focusSymbol}catch(e){}}
-function persist(){try{const v={};for(const id of ['profile','maxSymbols','minTurnover','topCount'])v[id]=$(id).value;v.focusSymbol=$('focusSymbol').value;localStorage.setItem('bybit-screener-v42',JSON.stringify(v))}catch(e){}}
+function exportAudit(){const rows=[['종목','24h 거래대금','24h 등락(%)','검색 결과','세부 이유','스캔 시작 UTC(ms)'],...[...state.audit.values()].map(a=>[a.symbol,a.turnover??'',a.pct24h??'',a.stage,a.detail??'',state.started??''])];const data='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([data],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='bybit_scanner_v43_audit_'+kstStamp()+'.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+// History is local, versioned, and includes all completed analyses (not just visible results).
+const HISTORY_KEY='bybit-scanner-history-v43', HOUR=3600000, Q=900000;
+let historyWarning='',performanceRows=[];
+function readHistory(){try{const a=JSON.parse(localStorage.getItem(HISTORY_KEY)||'[]');return Array.isArray(a)?a.filter(s=>Number.isFinite(s.time)&&Array.isArray(s.rows)&&s.time>=Date.now()-14*24*HOUR).slice(-48):[]}catch(e){historyWarning='기록 읽기 실패';return []}}
+let snapshots=readHistory();
+function attachChange(r,mode){
+ const out={...r,earlyDelta:null,earlySpeed:null,compareHours:null,previousEarly:null,newStrength:false};
+ for(let i=snapshots.length-1;i>=0;i--){const s=snapshots[i];if(s.mode!==mode)continue;const old=s.rows.find(x=>x.symbol===r.symbol);if(!old||old.oi!== (r.oi3pct!=null))continue;
+  const h=(r.closeTime15m-old.close)/HOUR, elapsed=(Date.now()-s.time)/HOUR;if(h===0)return out;if(h<.25||h>6||elapsed<0||elapsed>6)continue;
+  out.earlyDelta=r.earlyScore-old.early;out.earlySpeed=out.earlyDelta/h;out.compareHours=h;out.previousEarly=old.early;out.newStrength=r.earlyScore>=55&&out.earlyDelta>=10&&out.earlySpeed>=5&&r.category!=='risk'&&r.chaseScore<40;break;
+ }return out;
+}
+function signalChangeHTML(r){if(!Number.isFinite(r.earlyDelta))return '<div class="quick">선행 변화: 비교 기록 없음 (새 확정봉 스캔 필요)</div>';return `<div class="quick ${r.earlyDelta>0?'green':r.earlyDelta<0?'red':''}">${r.newStrength?'⚡ 신규 강화 · ':''}선행 ${r.earlyDelta>=0?'+':''}${r.earlyDelta.toFixed(1)}점 / ${r.compareHours.toFixed(2)}h · ${r.earlySpeed>=0?'+':''}${r.earlySpeed.toFixed(1)}점/h</div>`}
+function saveSnapshot(){
+ const rows=state.results.map(r=>({symbol:r.symbol,early:+r.earlyScore.toFixed(3),rev:+r.reversalScore.toFixed(3),acc:+r.accumScore.toFixed(3),risk:+r.chaseScore.toFixed(3),category:r.category,close:r.closeTime15m,oi:r.oi3pct!=null,price:r.priceLive,delta:r.earlyDelta,speed:r.earlySpeed}));
+ snapshots=[...snapshots.filter(s=>s.time>=Date.now()-14*24*HOUR),{time:state.lastTime,mode:state.mode,btc:state.btcContext?.label??'미확인',rows}].slice(-48);
+ try{localStorage.setItem(HISTORY_KEY,JSON.stringify(snapshots));historyWarning=''}catch(e){historyWarning='브라우저 저장 실패: 현재 탭에만 기록 유지. CSV로 백업하세요.'}refreshHistory();
+}
+function refreshHistory(){const select=$('historySelect'),prev=select.value;select.innerHTML='';for(const s of snapshots.slice().reverse()){const opt=document.createElement('option');opt.value=String(s.time);opt.textContent=closedAt(s.time)+' · '+(s.mode==='breakout'?'돌파':'매집')+' · '+s.rows.length+'개';select.appendChild(opt)}if(snapshots.some(s=>String(s.time)===prev))select.value=prev;$('historyStatus').textContent=(historyWarning?historyWarning+' · ':'')+'저장 '+snapshots.length+'회 · 첫 스캔은 기준점 생성';$('historyCsv').disabled=!snapshots.length;$('perfBtn').disabled=!snapshots.length;}
+async function btcMarket(ticker){try{const [h,b]=await Promise.all([kline('BTCUSDT','60',105),kline('BTCUSDT','240',100)]);const hr=hourly(h),fr=four('BTCUSDT',(ticker.list||[]).find(x=>x.symbol==='BTCUSDT')||{},b);if(!hr||!fr)return null;return {label:hr.trend1h&&fr.trend4h?'상방 우세':!hr.trend1h&&!fr.trend4h?'상방 미확인 · 시장 주의':'혼조',rsi1:hr.rsi1h,rsi4:fr.rsi4h,close:fr.barTime4h}}catch(e){return null}}
+function showMarket(){const b=state.btcContext;$('marketContext').textContent=b?'BTC '+b.label+' · 1h RSI '+b.rsi1.toFixed(1)+' · 4h RSI '+b.rsi4.toFixed(1)+' (참고용, 점수 미반영)':'BTC 상태 조회 실패/데이터 부족 · 종목 분석 계속';}
+function saveCsv(name,rows){const data='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([data],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+function exportHistory(){saveCsv('bybit_v43_history_'+kstStamp()+'.csv',[['스캔 UTC(ms)','모드','BTC 상태','종목','선행','전환','매집','추격','분류','15m 확정 UTC(ms)','OI 확인','스캔 시세','선행 변화','시간당 변화'],...snapshots.flatMap(s=>s.rows.map(r=>[s.time,s.mode,s.btc,r.symbol,r.early,r.rev,r.acc,r.risk,r.category,r.close,r.oi,r.price,r.delta,r.speed]))]);}
+function perfForBars(bars,anchor,now){const by=new Map(bars.map(b=>[b.t+Q,b]));const base=by.get(anchor);const out={anchor,base:base?.c??null,returns:{},status:{},max72:null,min72:null};
+ for(const h of [24,48,72]){const end=anchor+h*HOUR;if(end>now){out.status[h]='대기';continue;}const target=by.get(end);if(!base||!target){out.status[h]='데이터 부족';continue;}out.returns[h]=(target.c/base.c-1)*100;out.status[h]='완료';}
+ if(out.status[72]==='완료'){const all=Array.from({length:288},(_,i)=>by.get(anchor+(i+1)*Q));if(all.every(Boolean)){out.max72=(Math.max(base.c,...all.map(x=>x.h))/base.c-1)*100;out.min72=(Math.min(base.c,...all.map(x=>x.l))/base.c-1)*100;}}
+ return out;
+}
+async function checkPerformance(){if(state.running)return;const snapshot=snapshots.find(s=>String(s.time)===$('historySelect').value);if(!snapshot)return;const anchor=(Math.floor(snapshot.time/Q)+1)*Q,now=Date.now();const cohort=snapshot.rows.filter(r=>r.category!=='risk'&&r.risk<55).sort((a,b)=>b.early-a.early).slice(0,20);
+ state.running=true;state.cancel=false;performanceRows=[];for(const id of ['perfBtn','scanBtn','diagBtn','historySelect'])$(id).disabled=true;$('perfCsv').disabled=true;$('cancelBtn').classList.remove('hidden');$('perfResults').textContent='조회 중 · '+cohort.length+'개';
+ try{for(const r of cohort){if(state.cancel)break;let p;try{let bars=[];if(now>=anchor){const d=await request('/v5/market/kline',{category:'linear',symbol:r.symbol,interval:'15',start:anchor-Q,end:Math.min(anchor+72*HOUR,now)-1,limit:300});bars=candlesClosed(d.list||[],'15');}p=perfForBars(bars,anchor,now)}catch(e){p={anchor,base:null,returns:{},status:Object.fromEntries([24,48,72].map(h=>[h,anchor+h*HOUR>now?'대기':'API 오류'])),max72:null,min72:null};}performanceRows.push({...r,...p,scanTime:snapshot.time});$('perfResults').textContent='조회 '+performanceRows.length+'/'+cohort.length;}
+ const f=(r,h)=>r.returns[h]!=null?pct(r.returns[h],2):r.status[h];$('perfResults').innerHTML=`<p class="notice">${state.cancel?'중단 · ':''}기준 ${closedAt(anchor)} · ${performanceRows.length}개 · 스캔 종료 이후 첫 15m 종가 기준 · 72h 고저는 288봉 모두 있을 때만 계산</p>`+performanceRows.map(r=>`<div class="quick"><b>${safe(r.symbol)}</b> · 선행 ${r.early.toFixed(1)} · 기준가 ${price(r.base)}<br>24h ${f(r,24)} · 48h ${f(r,48)} · 72h ${f(r,72)}<br>72h 최대 ${pct(r.max72,2)} / 최소 ${pct(r.min72,2)}</div>`).join('');$('perfCsv').disabled=!performanceRows.length;
+ }finally{state.running=false;state.aborters.clear();$('cancelBtn').classList.add('hidden');for(const id of ['perfBtn','scanBtn','diagBtn','historySelect'])$(id).disabled=false;}}
+function exportPerformance(){saveCsv('bybit_v43_performance_'+kstStamp()+'.csv',[['스캔 UTC(ms)','기준 확정봉 UTC(ms)','종목','선행점수','기준 종가','24h 변동%','24h 상태','48h 변동%','48h 상태','72h 변동%','72h 상태','72h 최대상승%','72h 최대하락%'],...performanceRows.map(r=>[r.scanTime,r.anchor,r.symbol,r.early,r.base,r.returns[24],r.status[24],r.returns[48],r.status[48],r.returns[72],r.status[72],r.max72,r.min72])]);}
+
+function restore(){try{const v=JSON.parse(localStorage.getItem('bybit-screener-v43')||localStorage.getItem('bybit-screener-v42')||localStorage.getItem('bybit-screener-v41')||localStorage.getItem('bybit-screener-v4')||localStorage.getItem('bybit-screener-v3')||localStorage.getItem('bybit-screener-v2')||'{}');for(const id of ['profile','maxSymbols','minTurnover','topCount']){if(v[id]!=null&&[...$(id).options].some(o=>o.value===v[id]))$(id).value=v[id]}if(typeof v.focusSymbol==='string')$('focusSymbol').value=v.focusSymbol}catch(e){}}
+function persist(){try{const v={};for(const id of ['profile','maxSymbols','minTurnover','topCount'])v[id]=$(id).value;v.focusSymbol=$('focusSymbol').value;localStorage.setItem('bybit-screener-v43',JSON.stringify(v))}catch(e){}}
 function setMode(mode){if(state.running)return;state.mode=mode;document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('modeDesc').textContent=mode==='breakout'?'선택된 모든 후보의 15분봉을 먼저 검사합니다. 단기 저항·거래량 지속성·매도 압력을 확인하고 4h/1h/OI로 검증합니다.':'최근 7일 대비 거래대금 증가를 찾고, 15분봉 조기 신호·4시간 압축·OI 변화와 과열도를 함께 확인합니다.';state.results=[];state.lastTime=null;$('resultCount').textContent='';$('summaryBar').innerHTML='';$('lastUpdated').textContent='분석 방식이 변경되었습니다. 스캔을 다시 실행하세요.';$('results').innerHTML='<div class="empty">스캔 시작을 누르면 새로운 방식으로 분석합니다.</div>';$('csvBtn').disabled=true}
-restore();$('diagBtn').addEventListener('click',diagnose);$('focusSymbol').addEventListener('change',persist);$('focusSymbol').addEventListener('keydown',e=>{if(e.key==='Enter')diagnose()});document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));$('scanBtn').addEventListener('click',scan);$('cancelBtn').addEventListener('click',()=>{state.cancel=true;for(const a of state.aborters)a.abort();$('message').textContent='요청을 중단하는 중입니다.'});$('csvBtn').addEventListener('click',exportCSV);$('auditBtn').addEventListener('click',exportAudit);for(const id of ['profile','maxSymbols','minTurnover','topCount'])$(id).addEventListener('change',()=>{persist();if(state.results.length)render()});for(const id of ['typeFilter','sortBy'])$(id).addEventListener('change',()=>{if(state.results.length)render()});
+restore();refreshHistory();$('historySelect').addEventListener('change',()=>{performanceRows=[];$('perfResults').innerHTML='';$('perfCsv').disabled=true});$('historyCsv').addEventListener('click',exportHistory);$('perfBtn').addEventListener('click',checkPerformance);$('perfCsv').addEventListener('click',exportPerformance);$('diagBtn').addEventListener('click',diagnose);$('focusSymbol').addEventListener('change',persist);$('focusSymbol').addEventListener('keydown',e=>{if(e.key==='Enter')diagnose()});document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));$('scanBtn').addEventListener('click',scan);$('cancelBtn').addEventListener('click',()=>{state.cancel=true;for(const a of state.aborters)a.abort();$('message').textContent='요청을 중단하는 중입니다.'});$('csvBtn').addEventListener('click',exportCSV);$('auditBtn').addEventListener('click',exportAudit);for(const id of ['profile','maxSymbols','minTurnover','topCount'])$(id).addEventListener('change',()=>{persist();if(state.results.length)render()});for(const id of ['typeFilter','sortBy'])$(id).addEventListener('change',()=>{if(state.results.length)render()});
 </script>
 </body></html>
